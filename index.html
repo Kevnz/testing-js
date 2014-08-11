@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Testing JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="build/build.css">
+  </head>
+  <body>
+    <article>
+      <section>
+        <h1>Testing JavaScript</h1>
+        <h3>by Kevin Isom</h3>
+      </section>
+      <section>
+        <h2>Me</h2>
+        <ul>
+          <li><a href="http://kevinisom.info">KevinIsom.info</a></li>
+          <li><a href="https://twitter.com/kev_nz">twitter @kev_nz</a></li>
+          <li><a href="https://github.com/kevnz">github @kevnz</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Pushpay</h2>
+      </section>
+      <section>
+        <h2>Why test</h2>
+        <ul>
+          <li>IE 6</li>
+          <li>IE 7</li>
+          <li>IE 8</li>
+          <li>IE 9</li>
+          <li>IE 10</li>
+          <li>IE 11</li>
+          <li>Google Chrome</li>
+          <li>FireFox</li>
+          <li>Safari</li>
+          <li>Opera</li>
+          <li>Mobile Safari</li>
+          <li>Android</li>
+          <li>Mobile Chrome</li>
+          <li>Mobile IE</li>
+          <li>Opera Mini</li>
+          <li>...</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Testing frameworks </h2>
+        <ul>
+          <li>Q Unit</li>
+          <li>Jasmin</li>
+          <li>Mocha</li>
+        </ul>
+      </section>
+      <section>
+        <h2>QUnit</h2>
+        <pre><code class="language-javascript">QUnit.test( "hello test", function( assert ) {
+  assert.ok( 1 == "1", "Passed!" );
+});</code></pre>
+      </section>
+      <section>
+        <h2>Jasmine</h2>
+        <pre><code class="language-javascript">describe("A suite", function() {
+  it("contains spec with an expectation", function() {
+    expect(true).toBe(true);
+  });
+});</code></pre>
+      </section>
+      <section>
+        <h2>Mocha</h2>
+        <pre><code class="language-javascript">var assert = require("assert")
+describe('Array', function(){
+  describe('#indexOf()', function(){
+    it('should return -1 when the value is not present', function(){
+      assert.equal(-1, [1,2,3].indexOf(5));
+      assert.equal(-1, [1,2,3].indexOf(0));
+    });
+  });
+});</code></pre>
+      </section>
+      <section>
+        <h2>Chai - Should</h2>
+        <pre><code class="language-javascript">chai.should();
+foo.should.be.a('string');
+foo.should.equal('bar');
+foo.should.have.length(3);
+tea.should.have.property('flavors')
+  .with.length(3);</code></pre>
+      </section>
+      <section>
+        <h2>Chai - Expect</h2>
+        <pre><code class="language-javascript">var expect = chai.expect;
+expect(foo).to.be.a('string');
+expect(foo).to.equal('bar');
+expect(foo).to.have.length(3);
+expect(tea).to.have.property('flavors')
+  .with.length(3);</code></pre>
+      </section>
+      <section>
+        <h2>Chai - Assert</h2>
+        <pre><code class="language-javascript">var assert = chai.assert;
+assert.typeOf(foo, 'string');
+assert.equal(foo, 'bar');
+assert.lengthOf(foo, 3)
+assert.property(tea, 'flavors');
+assert.lengthOf(tea.flavors, 3);</code></pre>
+      </section>
+      <section>
+        <h2>Power-Assert</h2>
+        <pre><code class="language-javascript">var assert = require('power-assert');
+describe('Array', function(){
+  describe('#indexOf()', function(){
+    it('should return index when the value is present', function(){
+      assert([1,2,3].indexOf(0) === 2);
+    });
+    it('should return -1 when the value is not present', function(){
+      assert.ok([1,2,3].indexOf(2) === -1, 'THIS IS AN ASSERTION MESSAGE');
+    });
+  });
+});
+</code></pre>
+      </section>
+      <section data-bespoke-hash="legacy-code">
+        <h2>Legacy Code</h2>
+        <p><quote>The main thing that distinguishes legacy code from non-legacy code is tests, or rather a lack of tests.</quote></p>
+      </section>
+      <section>
+        <h2>Legacy Code</h2>
+        <ul>
+          <li>People are writing legacy code right now.</li>
+          <li>Are you writing legacy code?</li>
+        </ul>
+      </section>
+      <section>
+        <h2>But JavaScript is hard to test</h2>
+        <h3>Right?</h3>
+      </section>
+      <section><iframe src="//giphy.com/embed/POql6zsXZbmcE" width="500" height="238" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></section>
+      <section>
+        <h2>The way we write it makes all the difference</h2>
+      </section>
+      <section data-bespoke-state="emphatic">
+        <h2>Emphatic Slide!</h2>
+        <h3>Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a></h3>
+      </section>
+      <section>
+        <h2 class="bullet">Just the beginning...</h2><br>
+        <ul>
+          <li>Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em></li>
+          <li>Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em></li>
+          <li>Edit JavaScript in <em>'src/scripts/main.js'</em></li>
+        </ul><br>
+        <ul>
+          <li><strong>Enjoy! :)</strong><a href="http://twitter.com/markdalgleish"> -@markdalgleish</a></li>
+        </ul>
+      </section>
+    </article>
+    <script src="build/build.js"></script>
+  </body>
+</html>
