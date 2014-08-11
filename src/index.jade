@@ -1,0 +1,165 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Testing JavaScript
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section
+        h1 Testing JavaScript
+        h3 by Kevin Isom
+
+      section
+        h2 Me
+        ul
+          li <a href="http://kevinisom.info">KevinIsom.info</a>
+          li <a href="https://twitter.com/kev_nz">twitter @kev_nz</a>
+          li <a href="https://github.com/kevnz">github @kevnz</a>
+
+      section
+        h2 Pushpay
+      
+      section
+        h2 Why test
+        ul
+          li IE 6
+          li IE 7
+          li IE 8
+          li IE 9
+          li IE 10
+          li IE 11
+          li Google Chrome
+          li FireFox
+          li Safari
+          li Opera
+          li Mobile Safari
+          li Android
+          li Mobile Chrome
+          li Mobile IE
+          li Opera Mini
+          li ...
+
+      section
+        h2 Testing frameworks 
+        ul
+          li Q Unit
+          li Jasmin
+          li Mocha
+
+      section
+        h2 QUnit
+        
+        pre
+          code.language-javascript.
+            QUnit.test( "hello test", function( assert ) {
+              assert.ok( 1 == "1", "Passed!" );
+            });
+      section
+        h2 Jasmine
+        pre
+          code.language-javascript.
+            describe("A suite", function() {
+              it("contains spec with an expectation", function() {
+                expect(true).toBe(true);
+              });
+            });
+      section
+        h2 Mocha
+        pre
+          code.language-javascript.
+            var assert = require("assert")
+            describe('Array', function(){
+              describe('#indexOf()', function(){
+                it('should return -1 when the value is not present', function(){
+                  assert.equal(-1, [1,2,3].indexOf(5));
+                  assert.equal(-1, [1,2,3].indexOf(0));
+                });
+              });
+            });
+      section
+        h2 Chai - Should
+        pre
+          code.language-javascript.
+            chai.should();
+            foo.should.be.a('string');
+            foo.should.equal('bar');
+            foo.should.have.length(3);
+            tea.should.have.property('flavors')
+              .with.length(3);
+      section
+        h2 Chai - Expect
+        pre
+          code.language-javascript.
+            var expect = chai.expect;
+            expect(foo).to.be.a('string');
+            expect(foo).to.equal('bar');
+            expect(foo).to.have.length(3);
+            expect(tea).to.have.property('flavors')
+              .with.length(3);
+      section
+        h2 Chai - Assert
+        pre
+          code.language-javascript.
+            var assert = chai.assert;
+            assert.typeOf(foo, 'string');
+            assert.equal(foo, 'bar');
+            assert.lengthOf(foo, 3)
+            assert.property(tea, 'flavors');
+            assert.lengthOf(tea.flavors, 3);
+      section
+        h2 Power-Assert
+        pre
+          code.language-javascript.
+            var assert = require('power-assert');
+            describe('Array', function(){
+              describe('#indexOf()', function(){
+                it('should return index when the value is present', function(){
+                  assert([1,2,3].indexOf(0) === 2);
+                });
+                it('should return -1 when the value is not present', function(){
+                  assert.ok([1,2,3].indexOf(2) === -1, 'THIS IS AN ASSERTION MESSAGE');
+                });
+              });
+            });
+
+      section(data-bespoke-hash='legacy-code')
+        h2 Legacy Code
+        p <quote>The main thing that distinguishes legacy code from non-legacy code is tests, or rather a lack of tests.</quote>
+
+      section
+        h2 Legacy Code
+        ul
+          li People are writing legacy code right now.
+          li Are you writing legacy code?
+      section
+        h2 But JavaScript is hard to test
+        h3 Right?
+      section
+        <iframe src="//giphy.com/embed/POql6zsXZbmcE" width="500" height="238" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      section
+        h2 The way we write it makes all the difference
+       
+      section(data-bespoke-state='emphatic')
+        h2 Emphatic Slide!
+        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a>
+
+      section
+        h2.bullet Just the beginning...
+        br
+        ul
+          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
+          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
+          li Edit JavaScript in <em>'src/scripts/main.js'</em>
+        br
+        ul
+          li
+            strong Enjoy! :)
+            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+
+    script(src='build/build.js')
