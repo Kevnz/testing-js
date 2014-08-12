@@ -31,15 +31,13 @@ html
           li IE 6
           li IE 7
           li IE 8
-          li IE 9
-          li IE 10
-          li IE 11
+          li IE 9...11
           li Google Chrome
           li FireFox
           li Safari
           li Opera
           li Mobile Safari
-          li Android
+          li Android Browser
           li Mobile Chrome
           li Mobile IE
           li Opera Mini
@@ -51,6 +49,9 @@ html
           li Q Unit
           li Jasmin
           li Mocha
+          li Buster.js
+          li YUITest
+          li And heaps more
 
       section
         h2 QUnit
@@ -127,10 +128,68 @@ html
                 });
               });
             });
+      section
+        h2 Buster.js
+        h3 Test Case
+        pre
+          code.language-javascript.
+            buster.testCase("My thing", {
+                "has the foo and bar": function () {
+                    assert.equals("foo", "bar");
+                },
 
+                "states the obvious": function () {
+                    assert(true);
+                }
+            });
+
+      section
+        h2 Buster.js
+        h3 Describe
+        pre
+          code.language-javascript. 
+            buster.spec.expose();// Expose describe and it functions globally
+            describe("My thing", function () {
+                it("has the foo and bar", function () {
+                    expect("foo").toEqual("bar");
+                });
+                it("states the obvious", function () {
+                    expect(true).toBe(true);;
+                });
+            });
+      section
+        h2 YUI Test
+        h3 Test Case
+        pre
+          code.language-javascript.
+            var testCase = new Y.Test.Case({
+              name: "TestCase Name",
+              //traditional test names
+              testSomething : function () {
+                  Y.assert(true === true, "Message")
+              },
+              testSomethingElse : function () {
+                  Y.Assert.isFunction(function(){}); 
+              }
+            });
+      section
+        h2 YUI Test
+        h3 Test Case with text names
+        pre
+          code.language-javascript.
+            var testCase = new Y.Test.Case({
+              name: "TestCase Name",
+              //traditional test names
+              "Something should happen here" : function () {
+                  Y.assert(true === true, "Message")
+              },
+              "Check something else" : function () {
+                  Y.Assert.isFunction(function(){}); 
+              }
+            });
       section(data-bespoke-hash='legacy-code')
         h2 Legacy Code
-        p <quote>The main thing that distinguishes legacy code from non-legacy code is tests, or rather a lack of tests.</quote>
+        p <blockquote>The main thing that distinguishes legacy code from non-legacy code is tests, or rather a lack of tests.</blockquote><cite>Michael Feathers - Working Effictively With Legacy Code</cite>
 
       section
         h2 Legacy Code
@@ -144,22 +203,57 @@ html
         <iframe src="//giphy.com/embed/POql6zsXZbmcE" width="500" height="238" frameBorder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
       section
         h2 The way we write it makes all the difference
-       
-      section(data-bespoke-state='emphatic')
-        h2 Emphatic Slide!
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-state">bespoke-state</a>
-
       section
-        h2.bullet Just the beginning...
+        h2 Things to avoid
+      section
+        h2 Nested callbacks
+        pre
+          code.language-javascript.
+            var fs = require('fs');
+            fs.mkdir('./hello',0777,function(err){
+              if (err) throw err;
+
+              fs.writeFile('./hello/world.txt', 'Hello!', function(err){
+                if (err) throw err;
+                console.log('File created with contents: ');
+
+                fs.readFile('./hello/world.txt', 'UTF-8', function(err, data){
+                  if (err) throw err;
+                  console.log(data);
+                });
+              });
+            });
+      section
+        pre
+          code.language-javascript.
+            var fs = require('fs');
+            fs.mkdir('./hello',0777,makeDirectory);
+            function makeDirectory(err){
+              if (err) throw err;
+              fs.writeFile('./hello/world.txt', 'Hello!', writeFile);
+            }
+            function writeFile(err){
+              if (err) throw err;
+              console.log('File created with contents: ');
+              fs.readFile('./hello/world.txt', 'UTF-8', readFile);
+            }
+            function readFile(err, data){
+              if (err) throw err;
+              console.log(data);
+            }
+      section
+        h2.bullet Test Runners
+        ul
+          li <a href="https://karma-runner.github.io/0.12/index.html">Karma</a>
+          li <a href="https://github.com/airportyh/testem">Testem</a>
+          li <a href="http://yui.github.io/yogi/">Yogi</a>
+      section
+        h2 Thanks
         br
         ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
-        br
-        ul
-          li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+          li <a href="https://www.pushpay.com/">Pushpay</a> 
+          li <a href="http://kevnz.github.io/testing-js/">http://kevnz.github.io/testing-js/</a> 
+          li <a href="https://github.com/Kevnz/testing-talk-code">https://github.com/Kevnz/testing-talk-code</a>
+          li <a href="https://www.twitter.com/kev_nz">@kev_nz</a> 
 
     script(src='build/build.js')
